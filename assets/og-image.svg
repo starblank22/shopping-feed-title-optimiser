@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0c0e13"/>
+      <stop offset="1" stop-color="#171a26"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#7b75f0"/>
+      <stop offset="1" stop-color="#a78bfa"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.18" cy="0.0" r="0.8">
+      <stop offset="0" stop-color="#4f46e5" stop-opacity="0.45"/>
+      <stop offset="1" stop-color="#4f46e5" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glow2" cx="0.95" cy="0.1" r="0.7">
+      <stop offset="0" stop-color="#7c3aed" stop-opacity="0.4"/>
+      <stop offset="1" stop-color="#7c3aed" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#glow)"/>
+  <rect width="1200" height="630" fill="url(#glow2)"/>
+
+  <!-- brand row -->
+  <g transform="translate(80,76)">
+    <rect width="62" height="62" rx="15" fill="url(#accent)"/>
+    <g transform="translate(14,14)" fill="none" stroke="#0c0e13" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M3 3 V31 H31"/>
+    </g>
+    <g transform="translate(14,14)" fill="#0c0e13">
+      <rect x="6" y="17" width="6" height="11" rx="2"/>
+      <rect x="15" y="11" width="6" height="17" rx="2"/>
+      <rect x="24" y="5" width="6" height="23" rx="2"/>
+    </g>
+    <text x="82" y="27" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="25" font-weight="700" fill="#eef0f5">Shopping Feed</text>
+    <text x="82" y="56" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="25" font-weight="700" fill="#a7adbc">Title Optimiser</text>
+  </g>
+
+  <!-- headline -->
+  <g font-family="Segoe UI, Helvetica, Arial, sans-serif" font-weight="800">
+    <text x="80" y="266" font-size="74" fill="#ffffff" letter-spacing="-2">Your product titles are why</text>
+    <text x="80" y="352" font-size="74" fill="#ffffff" letter-spacing="-2">your Shopping CTR is</text>
+    <text x="80" y="438" font-size="74" letter-spacing="-2"><tspan fill="url(#accent)">below 1%</tspan><tspan fill="#ffffff">. Here's the fix.</tspan></text>
+  </g>
+
+  <!-- subline -->
+  <text x="82" y="500" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="27" fill="#a7adbc">
+    Score every title against 9 best-practice rules &#183; get an AI rewrite prompt
+  </text>
+
+  <!-- trust pills -->
+  <g font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="22" font-weight="600">
+    <g transform="translate(80,540)">
+      <rect width="290" height="52" rx="26" fill="#1a1e29" stroke="#353c4c"/>
+      <circle cx="34" cy="26" r="7" fill="#34d27e"/>
+      <text x="58" y="34" fill="#eef0f5">100% in your browser</text>
+    </g>
+    <g transform="translate(392,540)">
+      <rect width="232" height="52" rx="26" fill="#1a1e29" stroke="#353c4c"/>
+      <circle cx="34" cy="26" r="7" fill="#34d27e"/>
+      <text x="58" y="34" fill="#eef0f5">No signup</text>
+    </g>
+    <g transform="translate(646,540)">
+      <rect width="244" height="52" rx="26" fill="#1a1e29" stroke="#353c4c"/>
+      <circle cx="34" cy="26" r="7" fill="#34d27e"/>
+      <text x="58" y="34" fill="#eef0f5">Free forever</text>
+    </g>
+  </g>
+
+  <!-- grade flourish -->
+  <g transform="translate(995,150)" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-weight="800">
+    <rect x="0" y="0" width="120" height="120" rx="24" fill="url(#accent)"/>
+    <text x="60" y="86" font-size="86" fill="#0c0e13" text-anchor="middle">A</text>
+    <rect x="-44" y="150" width="96" height="96" rx="20" fill="#1a1e29" stroke="#353c4c"/>
+    <text x="4" y="216" font-size="62" fill="#f4615b" text-anchor="middle">F</text>
+  </g>
+</svg>

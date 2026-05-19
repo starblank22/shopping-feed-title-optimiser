@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Shopping Feed Title Optimiser — Score & fix your Google Shopping titles</title>
+<meta name="description" content="Free, no-signup tool that scores your Google Shopping product titles against 9 best-practice rules, surfaces the worst offenders, and generates an AI rewrite prompt. 100% in your browser — your data never leaves your device.">
+<meta name="author" content="Shaun Mooney">
+<meta name="theme-color" content="#4f46e5">
+<link rel="canonical" href="https://starblank22.github.io/shopping-feed-title-optimiser/">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Shopping Feed Title Optimiser">
+<meta property="og:url" content="https://starblank22.github.io/shopping-feed-title-optimiser/">
+<meta property="og:title" content="Shopping Feed Title Optimiser">
+<meta property="og:description" content="Your product titles are why your Shopping CTR is below 1%. Score every title against 9 best-practice rules and get a ready-to-paste AI rewrite prompt — free, in your browser.">
+<meta property="og:image" content="https://starblank22.github.io/shopping-feed-title-optimiser/assets/og-image.svg">
+<meta property="og:image:type" content="image/svg+xml">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Shopping Feed Title Optimiser — your product titles are why your Shopping CTR is below 1%.">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Shopping Feed Title Optimiser">
+<meta name="twitter:description" content="Score every Google Shopping product title against 9 best-practice rules and get a ready-to-paste AI rewrite prompt — free, 100% in your browser.">
+<meta name="twitter:image" content="https://starblank22.github.io/shopping-feed-title-optimiser/assets/og-image.svg">
+
+<link rel="stylesheet" href="styles.css">
+<script>
+/* Set theme before first paint to avoid a flash. */
+(function () {
+  try {
+    var t = localStorage.getItem('sfto-theme');
+    if (t !== 'light' && t !== 'dark') {
+      t = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    }
+    document.documentElement.setAttribute('data-theme', t);
+  } catch (e) {}
+})();
+</script>
+<script defer src="app.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#tool">Skip to the tool</a>
+
+<!-- ===================== NAV ===================== -->
+<header class="nav">
+  <div class="wrap nav__inner">
+    <a class="brand" href="#top" aria-label="Shopping Feed Title Optimiser — home">
+      <span class="brand__mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M3 3v18h18"></path>
+          <rect x="6.5" y="12" width="3.4" height="6"></rect>
+          <rect x="12.3" y="8" width="3.4" height="10"></rect>
+          <rect x="18.1" y="4.5" width="3.4" height="13.5"></rect>
+        </svg>
+      </span>
+      <span class="brand__text">Shopping Feed<br>Title Optimiser</span>
+    </a>
+    <nav class="nav__links" aria-label="Primary">
+      <a href="#how">How it works</a>
+      <a href="#why">Why it matters</a>
+      <a href="#tool" class="nav__cta">Score my titles</a>
+    </nav>
+    <button id="themeToggle" class="icon-btn" type="button" aria-label="Switch colour theme" aria-pressed="false">
+      <svg class="icon-sun" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <circle cx="12" cy="12" r="4.2"></circle>
+        <path d="M12 1.8v3M12 19.2v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M1.8 12h3M19.2 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"></path>
+      </svg>
+      <svg class="icon-moon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5z"></path>
+      </svg>
+    </button>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ===================== HERO ===================== -->
+  <section class="hero">
+    <div class="wrap hero__inner">
+      <p class="eyebrow">Free tool for Google Shopping &amp; Performance Max managers</p>
+      <h1 class="hero__title">
+        Your product titles are why your<br class="br-lg">
+        Shopping CTR is <span class="grad">below 1%</span>. Here's the fix.
+      </h1>
+      <p class="hero__sub">
+        Paste your titles or drop in a Merchant Center feed. Every title is scored against
+        nine best-practice rules, the worst offenders are surfaced first, and you get a
+        ready-to-paste AI prompt to rewrite them in bulk.
+      </p>
+      <div class="hero__cta">
+        <a href="#tool" class="btn btn--primary btn--lg">Score my titles &rarr;</a>
+        <a href="#how" class="btn btn--ghost btn--lg">See how it works</a>
+      </div>
+      <ul class="trust" aria-label="Why you can trust this tool">
+        <li><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> 100% in your browser</li>
+        <li><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> No signup, no upload</li>
+        <li><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Free forever</li>
+        <li><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Your data never leaves your device</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ===================== TOOL ===================== -->
+  <section id="tool" class="section">
+    <div class="wrap">
+      <div class="card tool">
+        <div class="tabs" role="tablist" aria-label="Input mode">
+          <button class="tab is-active" id="tab-paste" role="tab" aria-selected="true" aria-controls="panel-paste" type="button">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 4h6a2 2 0 0 1 2 2v0H7v0a2 2 0 0 1 2-2z"/><path d="M7 6H5a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1V7a1 1 0 0 0-1-1h-2"/></svg>
+            Paste titles
+          </button>
+          <button class="tab" id="tab-upload" role="tab" aria-selected="false" aria-controls="panel-upload" type="button" tabindex="-1">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 16V4m0 0 4 4m-4-4-4 4"/><path d="M4 16v3a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-3"/></svg>
+            Upload feed
+          </button>
+        </div>
+
+        <!-- Paste panel -->
+        <div id="panel-paste" class="panel is-active" role="tabpanel" aria-labelledby="tab-paste">
+          <div class="field">
+            <label for="titlesInput">Product titles <span class="muted">— one per line</span></label>
+            <textarea id="titlesInput" rows="8" spellcheck="false" placeholder="Wham Storage Crystal Clear Plastic Box 24 Litre Stackable&#10;Joseph Joseph Nest 9 Plus Food Storage Container Set 9 Piece&#10;CHEAP STORAGE BOXES SALE BUY NOW BEST PRICE FREE DELIVERY"></textarea>
+          </div>
+          <details class="field field--optional">
+            <summary>Add matching brand names <span class="muted">(optional, improves scoring)</span></summary>
+            <p class="hint">One brand per line, in the same order as the titles above. Leave a line blank where a title has no brand. With brands supplied, the tool also checks brand placement.</p>
+            <textarea id="brandsInput" rows="5" spellcheck="false" placeholder="Wham&#10;Joseph Joseph&#10;"></textarea>
+          </details>
+          <div class="actions-row">
+            <button id="scorePasteBtn" class="btn btn--primary" type="button">Score titles</button>
+            <button id="samplePasteBtn" class="btn btn--ghost" type="button">Load sample titles</button>
+            <button id="clearPasteBtn" class="btn btn--ghost" type="button">Clear</button>
+          </div>
+        </div>
+
+        <!-- Upload panel -->
+        <div id="panel-upload" class="panel" role="tabpanel" aria-labelledby="tab-upload" hidden>
+          <div id="dropzone" class="dropzone" tabindex="0" role="button" aria-label="Choose a feed file or drag one here">
+            <svg viewBox="0 0 24 24" width="34" height="34" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 16V5m0 0 4.5 4.5M12 5 7.5 9.5"/><path d="M4 15v3.5A1.5 1.5 0 0 0 5.5 20h13a1.5 1.5 0 0 0 1.5-1.5V15"/></svg>
+            <p class="dropzone__title">Drop your Merchant Center feed here</p>
+            <p class="dropzone__sub">or <span class="link-look">browse files</span> &middot; CSV, TSV or XLSX &middot; up to ~10&nbsp;MB</p>
+            <input id="fileInput" type="file" accept=".csv,.tsv,.txt,.xlsx,.xls" hidden>
+          </div>
+          <div class="actions-row actions-row--tight">
+            <button id="sampleFeedBtn" class="btn btn--ghost" type="button">Load 50-row sample feed</button>
+            <a class="link-look link-look--sm" href="assets/sample-feed.csv" download>Download the sample CSV</a>
+          </div>
+          <div id="parseStatus" class="parse-status" hidden></div>
+          <div id="mappingPanel" class="mapping" hidden>
+            <h3 class="mapping__title">Column mapping</h3>
+            <p class="hint">We auto-detected these columns. Adjust any that look wrong, then score.</p>
+            <div id="mappingGrid" class="mapping__grid"></div>
+            <div class="actions-row actions-row--tight">
+              <button id="scoreFeedBtn" class="btn btn--primary" type="button">Score feed</button>
+            </div>
+          </div>
+        </div>
+
+        <p id="toolError" class="tool-error" role="alert" hidden></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== RESULTS ===================== -->
+  <section id="results" class="section" hidden aria-live="polite">
+    <div class="wrap">
+      <div class="results-head">
+        <h2 class="section__title">Your feed audit</h2>
+        <p id="resultsMeta" class="section__lead"></p>
+      </div>
+
+      <!-- Summary -->
+      <div class="stat-grid" id="statGrid"></div>
+
+      <div class="summary-grid">
+        <div class="card summary-card">
+          <h3 class="card__h">Grade distribution</h3>
+          <div id="gradeChart" class="grade-chart"></div>
+        </div>
+        <div class="card summary-card">
+          <h3 class="card__h">Most common problems</h3>
+          <ul id="topIssues" class="top-issues"></ul>
+        </div>
+      </div>
+
+      <div id="opportunity" class="opportunity"></div>
+
+      <!-- Table controls -->
+      <div class="results-actions">
+        <button id="downloadBtn" class="btn btn--primary" type="button">
+          <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11m0 0 4-4m-4 4-4-4"/><path d="M5 19h14"/></svg>
+          Download scored CSV
+        </button>
+        <button id="promptBtn" class="btn btn--secondary" type="button">
+          <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l2.2 5.6L20 10l-5.8 1.4L12 17l-2.2-5.6L4 10l5.8-1.4z"/></svg>
+          Generate AI rewrite prompt
+        </button>
+      </div>
+
+      <div class="table-toolbar">
+        <div class="filter-chips" id="gradeFilters" role="group" aria-label="Filter by grade">
+          <button class="chip is-active" data-grade="all" type="button">All</button>
+          <button class="chip" data-grade="A" type="button">A</button>
+          <button class="chip" data-grade="B" type="button">B</button>
+          <button class="chip" data-grade="C" type="button">C</button>
+          <button class="chip" data-grade="D" type="button">D</button>
+          <button class="chip" data-grade="F" type="button">F</button>
+        </div>
+        <div class="toolbar-right">
+          <label class="sr-only" for="searchInput">Search titles</label>
+          <div class="search">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+            <input id="searchInput" type="search" placeholder="Search titles…" autocomplete="off">
+          </div>
+          <label class="sr-only" for="sortSelect">Sort table</label>
+          <select id="sortSelect">
+            <option value="score-asc">Worst score first</option>
+            <option value="score-desc">Best score first</option>
+            <option value="row">Original feed order</option>
+          </select>
+        </div>
+      </div>
+
+      <p id="tableCount" class="table-count"></p>
+      <div class="table-wrap">
+        <table class="results-table" id="resultsTable">
+          <thead>
+            <tr>
+              <th scope="col" class="th-expand"><span class="sr-only">Expand</span></th>
+              <th scope="col">Product title</th>
+              <th scope="col" class="th-num">Score</th>
+              <th scope="col" class="th-num">Grade</th>
+              <th scope="col">Issues</th>
+            </tr>
+          </thead>
+          <tbody id="resultsBody"></tbody>
+        </table>
+      </div>
+      <div class="load-more-wrap">
+        <button id="loadMoreBtn" class="btn btn--ghost" type="button" hidden>Load more rows</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== HOW IT WORKS ===================== -->
+  <section id="how" class="section section--alt">
+    <div class="wrap">
+      <h2 class="section__title">How it works</h2>
+      <p class="section__lead">Three steps. No account, no waiting, no data leaving your laptop.</p>
+      <ol class="steps">
+        <li class="step card">
+          <span class="step__num">1</span>
+          <span class="step__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M9 4h6a2 2 0 0 1 2 2v0H7v0a2 2 0 0 1 2-2z"/><path d="M7 6H5a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1V7a1 1 0 0 0-1-1h-2"/><path d="M8 12h8M8 16h5"/></svg>
+          </span>
+          <h3>Paste or upload</h3>
+          <p>Drop in a list of titles or your full Google Merchant Center feed — CSV, TSV or XLSX. Columns are mapped automatically.</p>
+        </li>
+        <li class="step card">
+          <span class="step__num">2</span>
+          <span class="step__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 14l3.5-4 3 3L21 6"/></svg>
+          </span>
+          <h3>Score against 9 rules</h3>
+          <p>Every title gets a 0–100 score and an A–F grade. The worst offenders float to the top with plain-English fixes.</p>
+        </li>
+        <li class="step card">
+          <span class="step__num">3</span>
+          <span class="step__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l2.2 5.6L20 10l-5.8 1.4L12 17l-2.2-5.6L4 10l5.8-1.4z"/><path d="M19 15v4M17 17h4M5 5v3M3.5 6.5h3"/></svg>
+          </span>
+          <h3>Download &amp; rewrite</h3>
+          <p>Export a scored CSV, or copy a battle-tested AI prompt that rewrites your worst titles in one paste.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ===================== WHY IT MATTERS ===================== -->
+  <section id="why" class="section">
+    <div class="wrap why">
+      <div class="why__copy">
+        <h2 class="section__title">Why titles are the highest-leverage lever you have</h2>
+        <p>
+          In Google Shopping and Performance Max you don't write ad copy — Google writes it for you,
+          straight from your feed. The product title is the single biggest input into which searches
+          you show for and whether anyone clicks. Fix the titles and you fix the account.
+        </p>
+        <ul class="why__list">
+          <li><strong>Front-load within 70 characters.</strong> Shoppers and Google's matching both weight the start of the title hardest. Brand and core product first — everything else after.</li>
+          <li><strong>Use the full 150 characters.</strong> A 38-character title is unscored real estate. Material, colour, size and model all add query coverage.</li>
+          <li><strong>Cut the promotional noise.</strong> "Sale", "best price", "free delivery" and ALL-CAPS shouting waste characters and can get titles disapproved. Titles should be factual.</li>
+          <li><strong>Match the landing page.</strong> Title, price and specs must match the destination exactly — mismatches kill Quality Score and trigger suspensions.</li>
+        </ul>
+      </div>
+      <aside class="why__aside card">
+        <p class="why__stat">9</p>
+        <p class="why__statlabel">best-practice rules scored on every title</p>
+        <hr>
+        <p class="why__stat">0</p>
+        <p class="why__statlabel">bytes of your feed sent anywhere — it all runs in this tab</p>
+        <hr>
+        <p class="why__stat">100&nbsp;chars</p>
+        <p class="why__statlabel">the ideal title length: long enough to cover queries, short enough to survive truncation</p>
+      </aside>
+    </div>
+  </section>
+</main>
+
+<!-- ===================== FOOTER ===================== -->
+<footer class="footer">
+  <div class="wrap footer__inner">
+    <div>
+      <p class="footer__brand">Shopping Feed Title Optimiser</p>
+      <p class="footer__line">Built by Shaun Mooney. Free forever. Runs entirely in your browser — your data never leaves your device.</p>
+    </div>
+    <div class="footer__links">
+      <!-- TODO Shaun: replace the # below with your real LinkedIn profile URL -->
+      <a href="#" rel="noopener" aria-label="Shaun Mooney on LinkedIn">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.07 2.07 0 1 1 0-4.13 2.07 2.07 0 0 1 0 4.13zM7.12 20.45H3.55V9h3.57v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.55C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.72C24 .77 23.2 0 22.22 0z"/></svg>
+        Connect on LinkedIn
+      </a>
+      <a href="https://github.com/starblank22/shopping-feed-title-optimiser" rel="noopener" aria-label="View source on GitHub">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M12 .5C5.37.5 0 5.87 0 12.5c0 5.3 3.44 9.8 8.21 11.39.6.11.82-.26.82-.58l-.01-2.05c-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.09-.75.08-.73.08-.73 1.21.09 1.84 1.24 1.84 1.24 1.07 1.84 2.81 1.31 3.5 1 .11-.78.42-1.31.76-1.61-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.13-.3-.54-1.52.12-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 6.01 0c2.29-1.55 3.3-1.23 3.3-1.23.66 1.66.25 2.88.12 3.18.77.84 1.23 1.91 1.23 3.22 0 4.61-2.8 5.62-5.48 5.92.43.37.81 1.1.81 2.22l-.01 3.29c0 .32.22.7.83.58A12.01 12.01 0 0 0 24 12.5C24 5.87 18.63.5 12 .5z"/></svg>
+        Source on GitHub
+      </a>
+    </div>
+  </div>
+</footer>
+
+<!-- ===================== AI PROMPT MODAL ===================== -->
+<dialog id="promptModal" class="modal" aria-labelledby="promptModalTitle">
+  <div class="modal__head">
+    <h2 id="promptModalTitle">AI rewrite prompt</h2>
+    <button id="closeModalBtn" class="icon-btn icon-btn--plain" type="button" aria-label="Close dialog">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
+    </button>
+  </div>
+  <p class="modal__intro">
+    Paste this into Claude, ChatGPT or Gemini. It embeds your lowest-scoring titles and the full
+    rewrite spec, and asks for the result as a table you can drop straight back into your feed.
+  </p>
+  <div class="modal__controls">
+    <label for="promptCount">Rewrite my worst</label>
+    <select id="promptCount">
+      <option value="10">10 titles</option>
+      <option value="25" selected>25 titles</option>
+      <option value="50">50 titles</option>
+      <option value="100">100 titles</option>
+    </select>
+  </div>
+  <textarea id="promptText" class="modal__textarea" rows="16" readonly spellcheck="false"></textarea>
+  <div class="modal__foot">
+    <button id="copyPromptBtn" class="btn btn--primary" type="button">Copy prompt to clipboard</button>
+    <span id="copyStatus" class="copy-status" role="status"></span>
+  </div>
+</dialog>
+
+</body>
+</html>
