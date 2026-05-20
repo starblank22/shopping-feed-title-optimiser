@@ -105,6 +105,17 @@
     return title.match(SIZE_RE) || title.match(DIM_RE) || title.match(PACK_RE) || null;
   }
 
+  // GS1 mod-10 check digit. Pass the data digits (everything except the trailing
+  // check digit) as a string; returns the expected check digit 0–9.
+  function gtinCheckDigit(dataDigits) {
+    var sum = 0;
+    for (var i = 0; i < dataDigits.length; i++) {
+      var d = parseInt(dataDigits.charAt(dataDigits.length - 1 - i), 10);
+      sum += d * (i % 2 === 0 ? 3 : 1);
+    }
+    return (10 - (sum % 10)) % 10;
+  }
+
   /* ---------------------------------------------------------
      3. SCORING ENGINE
      --------------------------------------------------------- */
@@ -225,7 +236,12 @@
       PROMO_PHRASES.forEach(function (p) {
         if (new RegExp(escapeRe(p), 'i').test(title)) hits.push(p);
       });
-      if (/%\s*off|\b\d+\s?%/i.test(title)) hits.push('% off');
+      // Only flag percentages with a promotional context — bare "100% Cotton" or
+      // "5% Milk Fat" are legitimate product specs and must not be penalised.
+      if (/\b\d+\s*%\s*(off|discount|sale|saving|savings)\b/i.test(title) ||
+          /\b(save|extra|discount|sale|off|up\s+to)\s+\d+\s*%/i.test(title)) {
+        hits.push('% off');
+      }
       if (title.indexOf('★') !== -1 || title.indexOf('✦') !== -1 || title.indexOf('✓') !== -1) hits.push('★');
       if (title.indexOf('!') !== -1) hits.push('!');
       capList.forEach(function (c) { hits.push('ALL-CAPS “' + c + '”'); });
@@ -276,12 +292,23 @@
       if (!raw || /^0+$/.test(raw) || ['n/a', 'na', 'none', 'null', '-', '#n/a'].indexOf(norm) !== -1) {
         earned = 0; pass = false; tag = 'missing_gtin';
         detail = 'GTIN is missing, zero or N/A. Products with a valid GTIN earn more impressions and lower CPCs.';
-      } else if (/^\d{8}$|^\d{12,14}$/.test(raw.replace(/[\s-]/g, ''))) {
-        earned = 1; pass = true;
-        detail = 'Valid GTIN present.';
       } else {
-        earned = 0.5; pass = false; tag = 'invalid_gtin';
-        detail = 'GTIN "' + raw + '" is not a standard 8/12/13/14-digit barcode — double-check it.';
+        var clean = raw.replace(/[\s-]/g, '');
+        if (/^\d{8}$|^\d{12,14}$/.test(clean)) {
+          var expected = gtinCheckDigit(clean.substring(0, clean.length - 1));
+          var actual = parseInt(clean.charAt(clean.length - 1), 10);
+          if (expected === actual) {
+            earned = 1; pass = true;
+            detail = 'Valid GTIN present.';
+          } else {
+            earned = 0.3; pass = false; tag = 'invalid_gtin';
+            detail = 'GTIN "' + raw + '" is ' + clean.length + ' digits but its check digit is wrong (expected ' +
+              expected + ', got ' + actual + '). Likely a transcription typo — verify against the packaging.';
+          }
+        } else {
+          earned = 0.5; pass = false; tag = 'invalid_gtin';
+          detail = 'GTIN "' + raw + '" is not a standard 8/12/13/14-digit barcode — double-check it.';
+        }
       }
       rules.push({ id: 'gtin', label: 'Valid GTIN present', base: BASE.gtin, earned: earned, pass: pass, detail: detail, tag: tag });
     }

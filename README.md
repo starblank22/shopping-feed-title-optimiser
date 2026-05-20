@@ -58,7 +58,7 @@ proportionally. Grades: **A** 90+, **B** 75+, **C** 60+, **D** 40+, **F** below 
 | No ALL-CAPS words (4+ letters) | 5 | A lighter, separate penalty for shouting. Common acronyms (HDMI, OLED, etc.) and the supplied brand are whitelisted. |
 | No duplicate words | 5 | Tokenises the title and flags repeated words, ignoring stopwords. |
 | No special-character spam | 5 | Flags `||`, `>>>`, `~~`, repeated hyphens and similar clutter. |
-| Valid GTIN present | 10 | *Feed mode only.* Flags empty / zero / N/A / non-standard GTINs. |
+| Valid GTIN present | 10 | *Feed mode only.* Flags empty / zero / N/A / non-standard GTINs, and verifies the GS1 mod-10 check digit so transcription typos get caught. |
 | At least one custom label populated | 5 | *Feed mode only.* Custom labels enable bid segmentation. |
 
 The GTIN and custom-label rules only apply in feed mode when those columns exist; in
