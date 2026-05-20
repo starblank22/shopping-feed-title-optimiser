@@ -46,6 +46,27 @@
 
   function escapeRe(s) { return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); }
 
+  // Whole-word brand lookup in an already-lowercased title. Avoids the classic
+  // "Apple" matching inside "Pineapple". Treats any non-alphanumeric char (incl.
+  // apostrophes, ampersands, start/end of string) as a valid boundary, so brands
+  // like "L'Oréal" and "M&S" still match.
+  function findBrand(lower, brand) {
+    var needle = String(brand || '').toLowerCase();
+    if (!needle) return -1;
+    var from = 0;
+    while (from <= lower.length) {
+      var pos = lower.indexOf(needle, from);
+      if (pos === -1) return -1;
+      var before = pos > 0 ? lower.charAt(pos - 1) : '';
+      var after = lower.charAt(pos + needle.length);
+      var beforeOk = !before || !/[a-z0-9]/.test(before);
+      var afterOk = !after || !/[a-z0-9]/.test(after);
+      if (beforeOk && afterOk) return pos;
+      from = pos + 1;
+    }
+    return -1;
+  }
+
   /* ---------------------------------------------------------
      2. CORE TITLE ANALYSERS
      --------------------------------------------------------- */
@@ -136,7 +157,7 @@
     /* --- Brand in first 70 chars (only when brand is known) --- */
     if (hasBrand) {
       var earned, pass, detail, tag = null;
-      var pos = lower.indexOf(brand.toLowerCase());
+      var pos = findBrand(lower, brand);
       if (pos === -1) {
         earned = 0; pass = false; tag = 'no_brand';
         detail = 'Brand "' + brand + '" does not appear anywhere in the title.';
@@ -155,14 +176,16 @@
       var sized = hasSize(title);
       var brandFront = null;
       if (hasBrand) {
-        var bp = lower.indexOf(brand.toLowerCase());
+        var bp = findBrand(lower, brand);
         brandFront = bp !== -1 && bp <= Math.max(12, Math.floor(len * 0.25));
       }
       var sizeLast = false;
       if (sized) {
         var m = sizeMatch(title);
-        if (m) {
-          var idx = title.indexOf(m[0].trim().length ? m[0] : title);
+        if (m && typeof m.index === 'number') {
+          // Skip the leading boundary char (space / paren / start-of-string) that
+          // SIZE_RE captures in group 1, so we measure where the actual token starts.
+          var idx = m.index + (m[1] ? m[1].length : 0);
           sizeLast = idx >= len * 0.6;
         }
       }
